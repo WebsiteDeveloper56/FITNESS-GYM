@@ -1,0 +1,2768 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Gym | Strength, Fitness & Training</title>
+    <meta name="description" content="Fitness Gym website focused on strength training, cardio, workouts, fitness and consistent training.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Fitness Gym | Strength, Fitness & Training">
+    <meta property="og:description" content="Fitness Gym website focused on strength training, cardio, workouts, fitness and consistent training.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #08090d;
+            --bg-card: #12141c;
+            --bg-card-hover: #181b26;
+            --accent: #ff3333;
+            --accent-glow: rgba(255, 51, 51, 0.3);
+            --text-main: #f0f2f5;
+            --text-muted: #9aa0a6;
+            --border-color: #232733;
+            --font-main: 'Montserrat', sans-serif;
+            --font-display: 'Syncopate', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, input, select, textarea {
+            font-family: var(--font-main);
+            outline: none;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 7rem 0;
+            position: relative;
+        }
+
+        /* Utility Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(255, 51, 51, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 51, 51, 0.2);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1rem auto 0 auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            background-color: #e02828;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            background-color: rgba(255, 51, 51, 0.05);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: #fff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 9, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            background: rgba(8, 9, 13, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #fff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: calc(80px + 6rem);
+            padding-bottom: 6rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 1.25rem 0;
+            color: #fff;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-contact-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .hero-contact-info a {
+            color: #fff;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .hero-contact-info a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Dashboard Visual */
+        .hero-visual {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .dashboard-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .concept-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dashboard-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .metric-card {
+            background: rgba(8, 9, 13, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+            color: #fff;
+        }
+
+        .metric-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+        }
+
+        .metric-progress {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Fitness Marquee */
+        .marquee-section {
+            padding: 2rem 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: scrollMarquee 25s linear infinite;
+        }
+
+        .marquee-section:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .marquee-item span {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        .about-feature-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .about-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .about-panel h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .focus-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .focus-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(8, 9, 13, 0.5);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .focus-row span:first-child {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .focus-row span:last-child {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* Training Areas */
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .training-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .training-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        .training-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .training-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 51, 51, 0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            border: 1px solid rgba(255, 51, 51, 0.2);
+        }
+
+        .training-number {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .training-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .training-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .training-expand-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0;
+            text-align: left;
+        }
+
+        .training-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid transparent;
+            margin-top: 0;
+        }
+
+        .training-card.expanded .training-details {
+            max-height: 150px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-color: var(--border-color);
+        }
+
+        /* Workout Explorer */
+        .explorer-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .explorer-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media(max-width: 992px) {
+            .explorer-controls {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .control-select {
+            width: 100%;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .control-select:hover, .control-select:focus {
+            border-color: var(--accent);
+        }
+
+        .explorer-result {
+            background: rgba(8, 9, 13, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .explorer-result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .explorer-result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media(max-width: 768px) {
+            .explorer-result-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .explorer-item-box {
+            background: var(--bg-card);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .explorer-item-box span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .explorer-item-box h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .explorer-approach {
+            background: rgba(255, 51, 51, 0.05);
+            border: 1px solid rgba(255, 51, 51, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .explorer-approach h4 {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .explorer-approach p {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .disclaimer-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Exercise Library */
+        .library-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .exercises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .exercise-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .exercise-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+        }
+
+        .exercise-category-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .exercise-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .exercise-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .exercise-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.75rem;
+        }
+
+        /* Fitness Goal Selector */
+        .goal-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .goal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .goal-card:hover, .goal-card.selected {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 51, 51, 0.15);
+        }
+
+        .goal-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .goal-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .goal-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .goal-output-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            display: none;
+        }
+
+        .goal-output-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .goal-output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .goal-output-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media(max-width: 768px) {
+            .goal-output-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .goal-output-box h4 {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-output-box p {
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* Workout Builder */
+        .builder-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+        }
+
+        .builder-form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media(max-width: 992px) {
+            .builder-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .builder-result-panel {
+            background: rgba(8, 9, 13, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .builder-result-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .workout-phases {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media(max-width: 992px) {
+            .workout-phases {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .workout-phases {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .phase-card span {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-card h5 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Fitness Dashboard */
+        .dashboard-grid-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .dashboard-feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .dashboard-feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+
+        .dashboard-feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .dashboard-feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Training Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .principle-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .principle-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+        }
+
+        .principle-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(255, 51, 51, 0.15);
+            margin-bottom: 1rem;
+        }
+
+        .principle-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .principle-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Fitness Check-In */
+        .checkin-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .checkin-step {
+            margin-bottom: 2rem;
+        }
+
+        .checkin-step label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .checkin-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .checkin-option-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkin-option-btn:hover, .checkin-option-btn.selected {
+            border-color: var(--accent);
+            color: #fff;
+            background: rgba(255, 51, 51, 0.1);
+        }
+
+        .checkin-result {
+            background: rgba(8, 9, 13, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            display: none;
+        }
+
+        .checkin-result.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Gym Experience */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .experience-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+
+        .experience-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .experience-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Membership Inquiry */
+        .membership-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 4rem 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-wrapper h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .membership-wrapper p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .inquiry-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .inquiry-chip {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .inquiry-chip:hover, .inquiry-chip.selected {
+            border-color: var(--accent);
+            color: #fff;
+            background: rgba(255, 51, 51, 0.1);
+        }
+
+        /* FAQ Section */
+        .faq-accordion {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 51, 51, 0.4);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-question i {
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 2rem 1.5rem 2rem;
+        }
+
+        /* Contact Section (ZERO IMAGES) */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        @media(max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info-col h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .contact-info-col p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-card-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-card-box:hover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+        }
+
+        .contact-card-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 51, 51, 0.1);
+            color: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            border: 1px solid rgba(255, 51, 51, 0.2);
+            flex-shrink: 0;
+        }
+
+        .contact-card-details span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-card-details a, .contact-card-details h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .contact-card-details a:hover {
+            color: var(--accent);
+        }
+
+        .contact-action-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-form-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus, .form-control:hover {
+            border-color: var(--accent);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-feedback.success {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            color: #25d366;
+            display: block;
+        }
+
+        .form-feedback.error {
+            background: rgba(255, 51, 51, 0.1);
+            border: 1px solid rgba(255, 51, 51, 0.3);
+            color: var(--accent);
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 5rem 0 2rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        @media(max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 1.25rem;
+            max-width: 380px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-info a {
+            color: #fff;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .footer-contact-info a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            .marquee-track {
+                animation: none;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Responsive Breakpoints adjustments */
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(8, 9, 13, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: 0.4s ease;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+            section {
+                padding: 5rem 0;
+            }
+            .dashboard-metrics, .explorer-result-grid {
+                grid-template-columns: 1fr;
+            }
+            .membership-wrapper, .explorer-wrapper, .builder-wrapper, .checkin-wrapper {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-dumbbell" style="color: var(--accent);"></i> FITNESS <span>GYM</span></a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#training" class="nav-link">Training</a></li>
+                    <li><a href="#workouts" class="nav-link">Workouts</a></li>
+                    <li><a href="#tools" class="nav-link">Fitness Tools</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Start Training</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="section-badge">FITNESS GYM</div>
+                    <h1>BUILD STRENGTH. <br><span>BUILD DISCIPLINE.</span></h1>
+                    <p>A modern fitness space focused on training, movement, strength and building consistent workout habits.</p>
+                    <div class="hero-btns">
+                        <a href="#training" class="btn btn-primary">Explore Training</a>
+                        <a href="#membership" class="btn btn-secondary">Join the Gym</a>
+                        <a href="https://wa.me/923126944857" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+                    </div>
+                    <div class="hero-contact-info">
+                        <div>Phone: <a href="tel:+923126944857">03126944857</a></div>
+                        <div>WhatsApp: <a href="https://wa.me/923126944857" target="_blank" rel="noopener">03126944857</a></div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="dashboard-header">
+                        <span class="dashboard-title"><i class="fa-solid fa-chart-line" style="color: var(--accent);"></i> Performance Hub</span>
+                        <span class="concept-badge">Concept Data</span>
+                    </div>
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <div class="metric-label"><span>Workout</span> <i class="fa-solid fa-bolt" style="color: var(--accent);"></i></div>
+                            <div class="metric-value">Active</div>
+                            <div class="metric-bar"><div class="metric-progress" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label"><span>Strength</span> <i class="fa-solid fa-dumbbell" style="color: var(--accent);"></i></div>
+                            <div class="metric-value">Progressive</div>
+                            <div class="metric-bar"><div class="metric-progress" style="width: 78%;"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label"><span>Cardio</span> <i class="fa-solid fa-heart-pulse" style="color: var(--accent);"></i></div>
+                            <div class="metric-value">Endurance</div>
+                            <div class="metric-bar"><div class="metric-progress" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label"><span>Mobility</span> <i class="fa-solid fa-child-reaching" style="color: var(--accent);"></i></div>
+                            <div class="metric-value">Optimal</div>
+                            <div class="metric-bar"><div class="metric-progress" style="width: 82%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Marquee -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item">STRENGTH <span>/</span></div>
+            <div class="marquee-item">FITNESS <span>/</span></div>
+            <div class="marquee-item">CARDIO <span>/</span></div>
+            <div class="marquee-item">MOBILITY <span>/</span></div>
+            <div class="marquee-item">TRAINING <span>/</span></div>
+            <div class="marquee-item">DISCIPLINE <span>/</span></div>
+            <div class="marquee-item">PERFORMANCE <span>/</span></div>
+            <div class="marquee-item">CONSISTENCY <span>/</span></div>
+            <div class="marquee-item">WORKOUT <span>/</span></div>
+            <!-- Duplicate for smooth loop -->
+            <div class="marquee-item">STRENGTH <span>/</span></div>
+            <div class="marquee-item">FITNESS <span>/</span></div>
+            <div class="marquee-item">CARDIO <span>/</span></div>
+            <div class="marquee-item">MOBILITY <span>/</span></div>
+            <div class="marquee-item">TRAINING <span>/</span></div>
+            <div class="marquee-item">DISCIPLINE <span>/</span></div>
+            <div class="marquee-item">PERFORMANCE <span>/</span></div>
+            <div class="marquee-item">CONSISTENCY <span>/</span></div>
+            <div class="marquee-item">WORKOUT <span>/</span></div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-badge">About Fitness Gym</div>
+                    <h2>TRAIN WITH PURPOSE.</h2>
+                    <p>At Fitness Gym, we focus on empowering your fitness journey through dedicated training environments. Our philosophy revolves around building consistent habits, proper movement mechanics, and sustainable strength development.</p>
+                    <p>Whether your goal is general fitness, muscle conditioning, or cardiovascular endurance, our structured approach helps you train efficiently and safely.</p>
+                    <div class="about-features">
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Strength Training</div>
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Cardiovascular Fitness</div>
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Movement Discipline</div>
+                        <div class="about-feature-item"><i class="fa-solid fa-circle-check"></i> Progressive Routines</div>
+                    </div>
+                </div>
+                <div class="about-panel">
+                    <h3><i class="fa-solid fa-compass" style="color: var(--accent);"></i> Training Philosophy</h3>
+                    <div class="focus-list">
+                        <div class="focus-row">
+                            <span>Core Strength</span>
+                            <span>Primary Focus</span>
+                        </div>
+                        <div class="focus-row">
+                            <span>Movement Quality</span>
+                            <span>Essential</span>
+                        </div>
+                        <div class="focus-row">
+                            <span>Workout Consistency</span>
+                            <span>Key Pillar</span>
+                        </div>
+                        <div class="focus-row">
+                            <span>Progressive Overload</span>
+                            <span>Structured</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Areas Section -->
+    <section id="training" style="background-color: var(--bg-card);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Disciplines</div>
+                <h2 class="section-title">TRAINING AREAS</h2>
+                <p class="section-subtitle">Explore our dedicated training focus areas designed for every fitness level.</p>
+            </div>
+            <div class="training-grid">
+                <!-- 01 -->
+                <div class="training-card">
+                    <div class="training-card-header">
+                        <div class="training-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                        <span class="training-number">01</span>
+                    </div>
+                    <h3>STRENGTH TRAINING</h3>
+                    <p>Focused on building strength through structured resistance exercises.</p>
+                    <button class="training-expand-btn">View Details <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="training-details">
+                        Utilize compound lifts and free weights to develop foundational power, muscular strength, and joint stability under professional guidance.
+                    </div>
+                </div>
+                <!-- 02 -->
+                <div class="training-card">
+                    <div class="training-card-header">
+                        <div class="training-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <span class="training-number">02</span>
+                    </div>
+                    <h3>CARDIO FITNESS</h3>
+                    <p>Improve cardiovascular activity and overall endurance.</p>
+                    <button class="training-expand-btn">View Details <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="training-details">
+                        Engage in targeted aerobic training sessions designed to elevate heart health, stamina, and fat-burning efficiency.
+                    </div>
+                </div>
+                <!-- 03 -->
+                <div class="training-card">
+                    <div class="training-card-header">
+                        <div class="training-icon"><i class="fa-solid fa-fire"></i></div>
+                        <span class="training-number">03</span>
+                    </div>
+                    <h3>MUSCLE TRAINING</h3>
+                    <p>Workout-focused training for different muscle groups.</p>
+                    <button class="training-expand-btn">View Details <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="training-details">
+                        Targeted hypertrophy routines optimized for muscle building, balanced symmetry, and upper/lower body definition.
+                    </div>
+                </div>
+                <!-- 04 -->
+                <div class="training-card">
+                    <div class="training-card-header">
+                        <div class="training-icon"><i class="fa-solid fa-person-running"></i></div>
+                        <span class="training-number">04</span>
+                    </div>
+                    <h3>FULL BODY FITNESS</h3>
+                    <p>Balanced training involving multiple movement patterns.</p>
+                    <button class="training-expand-btn">View Details <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="training-details">
+                        Comprehensive workouts integrating push, pull, and legs movements to enhance total body functionality.
+                    </div>
+                </div>
+                <!-- 05 -->
+                <div class="training-card">
+                    <div class="training-card-header">
+                        <div class="training-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                        <span class="training-number">05</span>
+                    </div>
+                    <h3>MOBILITY</h3>
+                    <p>General movement and flexibility-focused exercises.</p>
+                    <button class="training-expand-btn">View Details <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="training-details">
+                        Dynamic stretching and joint mobilization exercises designed to improve range of motion and prevent injury.
+                    </div>
+                </div>
+                <!-- 06 -->
+                <div class="training-card">
+                    <div class="training-card-header">
+                        <div class="training-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                        <span class="training-number">06</span>
+                    </div>
+                    <h3>CONDITIONING</h3>
+                    <p>Fitness-focused conditioning and workout intensity.</p>
+                    <button class="training-expand-btn">View Details <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="training-details">
+                        High-energy metabolic conditioning designed to push athletic capacity, speed, and endurance to new heights.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Explorer Section -->
+    <section id="workouts">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Interactive Tool</div>
+                <h2 class="section-title">WORKOUT EXPLORER</h2>
+                <p class="section-subtitle">Select your preferences below to discover a conceptual workout guide.</p>
+            </div>
+            <div class="explorer-wrapper">
+                <div class="explorer-controls">
+                    <div class="control-group">
+                        <label for="explorerGoal">Goal</label>
+                        <select id="explorerGoal" class="control-select">
+                            <option value="Strength">Strength</option>
+                            <option value="Muscle Building">Muscle Building</option>
+                            <option value="General Fitness">General Fitness</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Full Body">Full Body</option>
+                            <option value="Mobility">Mobility</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="explorerLevel">Experience</label>
+                        <select id="explorerLevel" class="control-select">
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="explorerFocus">Focus</label>
+                        <select id="explorerFocus" class="control-select">
+                            <option value="Full Body">Full Body</option>
+                            <option value="Upper Body">Upper Body</option>
+                            <option value="Lower Body">Lower Body</option>
+                            <option value="Core">Core</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="explorer-result">
+                    <div class="explorer-result-header">
+                        <span class="dashboard-title"><i class="fa-solid fa-compass-drafting" style="color: var(--accent);"></i> Generated Guide</span>
+                        <span class="concept-badge">Conceptual Workout Guide</span>
+                    </div>
+                    <div class="explorer-result-grid">
+                        <div class="explorer-item-box">
+                            <span>Selected Goal</span>
+                            <h4 id="outGoal">Strength</h4>
+                        </div>
+                        <div class="explorer-item-box">
+                            <span>Experience Level</span>
+                            <h4 id="outLevel">Beginner</h4>
+                        </div>
+                        <div class="explorer-item-box">
+                            <span>Target Focus</span>
+                            <h4 id="outFocus">Full Body</h4>
+                        </div>
+                    </div>
+                    <div class="explorer-approach">
+                        <h4>Suggested Training Approach</h4>
+                        <p id="outApproach">Start with controlled compound movements, proper technique and manageable training volume.</p>
+                    </div>
+                    <p class="disclaimer-text">"This interactive guide is for general informational purposes and does not replace advice from a qualified fitness professional."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise Library Section -->
+    <section style="background-color: var(--bg-card);" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Library</div>
+                <h2 class="section-title">EXERCISE LIBRARY</h2>
+                <p class="section-subtitle">Browse and filter our exercise catalog with safety-focused descriptions.</p>
+            </div>
+            <div class="library-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Strength">Strength</button>
+                <button class="filter-btn" data-filter="Chest">Chest</button>
+                <button class="filter-btn" data-filter="Back">Back</button>
+                <button class="filter-btn" data-filter="Shoulders">Shoulders</button>
+                <button class="filter-btn" data-filter="Arms">Arms</button>
+                <button class="filter-btn" data-filter="Legs">Legs</button>
+                <button class="filter-btn" data-filter="Core">Core</button>
+                <button class="filter-btn" data-filter="Cardio">Cardio</button>
+                <button class="filter-btn" data-filter="Mobility">Mobility</button>
+            </div>
+            <div class="exercises-grid" id="exercisesGrid">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Goal Selector Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Guidance</div>
+                <h2 class="section-title">WHAT ARE YOU TRAINING FOR?</h2>
+                <p class="section-subtitle">Select your primary objective to view conceptual guidance.</p>
+            </div>
+            <div class="goal-selector-grid">
+                <div class="goal-card" data-goal="Build Strength" data-style="Progressive resistance & compound lifts" data-rec="Focus on form and gradual weight increments over time.">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <h3>Build Strength</h3>
+                    <p>Enhance power and structural resilience.</p>
+                </div>
+                <div class="goal-card" data-goal="Improve Fitness" data-style="Balanced cardiovascular & strength mix" data-rec="Maintain a consistent weekly routine across multiple disciplines.">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <h3>Improve Fitness</h3>
+                    <p>Boost overall physical conditioning.</p>
+                </div>
+                <div class="goal-card" data-goal="Increase Activity" data-style="Dynamic movement & active recovery" data-rec="Prioritize daily movement and regular gym attendance.">
+                    <i class="fa-solid fa-person-walking"></i>
+                    <h3>Increase Activity</h3>
+                    <p>Incorporate more movement into daily life.</p>
+                </div>
+                <div class="goal-card" data-goal="Improve Endurance" data-style="High-rep conditioning & aerobic focus" data-rec="Gradually increase workout duration and stamina capacity.">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <h3>Improve Endurance</h3>
+                    <p>Build stamina for sustained performance.</p>
+                </div>
+                <div class="goal-card" data-goal="Build Consistency" data-style="Sustainable habit-based programming" data-rec="Set achievable weekly workout targets and stick to them.">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>Build Consistency</h3>
+                    <p>Establish long-term training habits.</p>
+                </div>
+                <div class="goal-card" data-goal="General Wellness" data-style="Holistic fitness & mobility routine" data-rec="Balance strength, cardio, and stretching sessions evenly.">
+                    <i class="fa-solid fa-spa"></i>
+                    <h3>General Wellness</h3>
+                    <p>Promote overall health and vitality.</p>
+                </div>
+            </div>
+            <div class="goal-output-panel" id="goalOutputPanel">
+                <div class="goal-output-header">
+                    <span class="dashboard-title"><i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i> Objective Insight</span>
+                    <span class="concept-badge">Conceptual Fitness Guidance</span>
+                </div>
+                <div class="goal-output-grid">
+                    <div class="goal-output-box">
+                        <h4>Training Focus</h4>
+                        <p id="resGoalTitle">Select an option above</p>
+                    </div>
+                    <div class="goal-output-box">
+                        <h4>Suggested Routine Style</h4>
+                        <p id="resGoalStyle">Select an option above</p>
+                    </div>
+                    <div class="goal-output-box">
+                        <h4>General Recommendation</h4>
+                        <p id="resGoalRec">Select an option above</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Builder Section -->
+    <section style="background-color: var(--bg-card);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Builder</div>
+                <h2 class="section-title">BUILD YOUR WORKOUT</h2>
+                <p class="section-subtitle">Customize your training parameters to generate a conceptual structure.</p>
+            </div>
+            <div class="builder-wrapper">
+                <div class="builder-form-grid">
+                    <div class="control-group">
+                        <label for="builderType">Workout Type</label>
+                        <select id="builderType" class="control-select">
+                            <option value="Strength">Strength</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Full Body">Full Body</option>
+                            <option value="Upper Body">Upper Body</option>
+                            <option value="Lower Body">Lower Body</option>
+                            <option value="Core">Core</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="builderIntensity">Intensity</label>
+                        <select id="builderIntensity" class="control-select">
+                            <option value="Light">Light</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Challenging">Challenging</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="builderDuration">Duration Preference</label>
+                        <select id="builderDuration" class="control-select">
+                            <option value="Short">Short (30 min)</option>
+                            <option value="Medium">Medium (45-60 min)</option>
+                            <option value="Long">Long (75+ min)</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" id="generateWorkoutBtn">Generate Structure</button>
+                </div>
+                <div class="builder-result-panel" id="builderResultPanel">
+                    <div class="explorer-result-header" style="margin-bottom: 1.5rem;">
+                        <span class="dashboard-title"><i class="fa-solid fa-list-check" style="color: var(--accent);"></i> Generated Routine Structure</span>
+                        <span class="concept-badge">Conceptual Workout Builder</span>
+                    </div>
+                    <div class="workout-phases">
+                        <div class="phase-card">
+                            <span>Phase 01</span>
+                            <h5>Warm-Up</h5>
+                            <p id="phaseWarmup">Dynamic mobility and light activation.</p>
+                        </div>
+                        <div class="phase-card">
+                            <span>Phase 02</span>
+                            <h5>Main Workout</h5>
+                            <p id="phaseMain">Targeted compound movements matching your selection.</p>
+                        </div>
+                        <div class="phase-card">
+                            <span>Phase 03</span>
+                            <h5>Conditioning</h5>
+                            <p id="phaseCond">Metabolic finisher suited for intensity level.</p>
+                        </div>
+                        <div class="phase-card">
+                            <span>Phase 04</span>
+                            <h5>Cool Down</h5>
+                            <p id="phaseCool">Controlled breathing and static stretching.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Dashboard Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Dashboard</div>
+                <h2 class="section-title">YOUR FITNESS DASHBOARD</h2>
+                <p class="section-subtitle">Monitor conceptual training metrics and progress levels.</p>
+            </div>
+            <div class="dashboard-grid-main">
+                <div class="dashboard-feature-card">
+                    <h3>WORKOUT</h3>
+                    <p>Daily tracking of session completion status.</p>
+                    <div class="metric-label"><span>Status</span> <span>88%</span></div>
+                    <div class="metric-bar"><div class="metric-progress" style="width: 88%;"></div></div>
+                    <span class="concept-badge" style="display: inline-block; margin-top: 1rem;">Demo / Concept Data</span>
+                </div>
+                <div class="dashboard-feature-card">
+                    <h3>TRAINING</h3>
+                    <p>Weekly adherence to scheduled training blocks.</p>
+                    <div class="metric-label"><span>Consistency</span> <span>92%</span></div>
+                    <div class="metric-bar"><div class="metric-progress" style="width: 92%;"></div></div>
+                    <span class="concept-badge" style="display: inline-block; margin-top: 1rem;">Demo / Concept Data</span>
+                </div>
+                <div class="dashboard-feature-card">
+                    <h3>CARDIO</h3>
+                    <p>Aerobic capacity and endurance tracking.</p>
+                    <div class="metric-label"><span>Capacity</span> <span>75%</span></div>
+                    <div class="metric-bar"><div class="metric-progress" style="width: 75%;"></div></div>
+                    <span class="concept-badge" style="display: inline-block; margin-top: 1rem;">Demo / Concept Data</span>
+                </div>
+                <div class="dashboard-feature-card">
+                    <h3>STRENGTH</h3>
+                    <p>Resistance training progression indicators.</p>
+                    <div class="metric-label"><span>Progress</span> <span>80%</span></div>
+                    <div class="metric-bar"><div class="metric-progress" style="width: 80%;"></div></div>
+                    <span class="concept-badge" style="display: inline-block; margin-top: 1rem;">Demo / Concept Data</span>
+                </div>
+                <div class="dashboard-feature-card">
+                    <h3>MOBILITY</h3>
+                    <p>Flexibility and joint health metrics.</p>
+                    <div class="metric-label"><span>Flexibility</span> <span>85%</span></div>
+                    <div class="metric-bar"><div class="metric-progress" style="width: 85%;"></div></div>
+                    <span class="concept-badge" style="display: inline-block; margin-top: 1rem;">Demo / Concept Data</span>
+                </div>
+                <div class="dashboard-feature-card">
+                    <h3>RECOVERY</h3>
+                    <p>Rest and restoration level monitoring.</p>
+                    <div class="metric-label"><span>Rest Status</span> <span>95%</span></div>
+                    <div class="metric-bar"><div class="metric-progress" style="width: 95%;"></div></div>
+                    <span class="concept-badge" style="display: inline-block; margin-top: 1rem;">Demo / Concept Data</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Principles Section -->
+    <section style="background-color: var(--bg-card);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Foundations</div>
+                <h2 class="section-title">THE TRAINING PRINCIPLES</h2>
+                <p class="section-subtitle">Core tenets that guide every workout and training session.</p>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-num">01</div>
+                    <h3>CONSISTENCY</h3>
+                    <p>Build sustainable workout habits through regular, dependable attendance and routine adherence.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">02</div>
+                    <h3>PROGRESSION</h3>
+                    <p>Gradually improve training according to your ability, ensuring steady physical adaptation.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">03</div>
+                    <h3>FORM</h3>
+                    <p>Prioritize controlled and appropriate movement mechanics to maximize safety and efficiency.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">04</div>
+                    <h3>RECOVERY</h3>
+                    <p>Allow the body adequate recovery time between intense training sessions for optimal adaptation.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">05</div>
+                    <h3>BALANCE</h3>
+                    <p>Combine different areas of fitness—strength, cardio, and mobility—for complete physical development.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">06</div>
+                    <h3>DISCIPLINE</h3>
+                    <p>Stay consistent with your training routine regardless of external motivation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Check-In Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Self-Assessment</div>
+                <h2 class="section-title">FITNESS CHECK-IN</h2>
+                <p class="section-subtitle">Answer a few quick questions to determine your suggested focus.</p>
+            </div>
+            <div class="checkin-wrapper">
+                <div class="checkin-step">
+                    <label>1. How often do you train?</label>
+                    <div class="checkin-options" data-group="freq">
+                        <button class="checkin-option-btn selected" data-value="Rarely">Rarely</button>
+                        <button class="checkin-option-btn" data-value="Sometimes">Sometimes</button>
+                        <button class="checkin-option-btn" data-value="Regularly">Regularly</button>
+                    </div>
+                </div>
+                <div class="checkin-step">
+                    <label>2. What is your main goal?</label>
+                    <div class="checkin-options" data-group="goal">
+                        <button class="checkin-option-btn selected" data-value="Strength">Strength</button>
+                        <button class="checkin-option-btn" data-value="Fitness">Fitness</button>
+                        <button class="checkin-option-btn" data-value="Cardio">Cardio</button>
+                        <button class="checkin-option-btn" data-value="Muscle">Muscle</button>
+                        <button class="checkin-option-btn" data-value="General Wellness">General Wellness</button>
+                    </div>
+                </div>
+                <div class="checkin-step">
+                    <label>3. Preferred training environment?</label>
+                    <div class="checkin-options" data-group="env">
+                        <button class="checkin-option-btn selected" data-value="Gym">Gym</button>
+                        <button class="checkin-option-btn" data-value="Home">Home</button>
+                        <button class="checkin-option-btn" data-value="Mixed">Mixed</button>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" id="runCheckinBtn">Generate Suggested Focus</button>
+                </div>
+                <div class="checkin-result" id="checkinResult">
+                    <span class="concept-badge" style="margin-bottom: 1rem; display: inline-block;">Conceptual Fitness Check-In</span>
+                    <h4 id="checkinOutputTitle" style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 0.75rem;">Your Suggested Focus</h4>
+                    <p id="checkinOutputDesc" style="color: var(--text-muted); font-size: 1rem;">Based on your inputs, focus on building sustainable weekly routines combining strength and mobility exercises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gym Experience Section -->
+    <section style="background-color: var(--bg-card);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Experience</div>
+                <h2 class="section-title">MORE THAN A WORKOUT.</h2>
+                <p class="section-subtitle">Discover our core pillars designed for sustainable physical development.</p>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>TRAIN</h3>
+                    <p>Build a consistent training routine with structured exercises and reliable guidance.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>MOVE</h3>
+                    <p>Improve general movement and physical activity across all movement planes.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>FOCUS</h3>
+                    <p>Stay focused on your fitness goals with clear intentions and disciplined execution.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>PROGRESS</h3>
+                    <p>Build sustainable habits over time through steady, measured consistency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Inquiry Section -->
+    <section id="membership">
+        <div class="container">
+            <div class="membership-wrapper">
+                <div class="section-badge" style="margin-bottom: 1.5rem;">Inquiry</div>
+                <h2>READY TO START?</h2>
+                <p>Have questions about memberships, training routines, or visiting our gym? Connect with us instantly via WhatsApp.</p>
+                <div class="inquiry-options" id="inquiryChips">
+                    <div class="inquiry-chip selected" data-inquiry="General Membership Inquiry">General Membership Inquiry</div>
+                    <div class="inquiry-chip" data-inquiry="Training Inquiry">Training Inquiry</div>
+                    <div class="inquiry-chip" data-inquiry="Workout Information">Workout Information</div>
+                    <div class="inquiry-chip" data-inquiry="Gym Visit Inquiry">Gym Visit Inquiry</div>
+                    <div class="inquiry-chip" data-inquiry="Other">Other</div>
+                </div>
+                <a href="https://wa.me/923126944857?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20General%20Membership%20Inquiry." target="_blank" rel="noopener" class="btn btn-whatsapp" id="whatsappInquiryBtn" style="font-size: 1rem; padding: 1.1rem 2.5rem;">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> Ask on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background-color: var(--bg-card);" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Support</div>
+                <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+                <p class="section-subtitle">Find answers to common questions about training, memberships, and workouts.</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">What type of fitness training is available? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">We offer a comprehensive range of training disciplines including strength training, cardio fitness, muscle training, full body workouts, mobility, and conditioning.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can beginners join? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes! Our training environment welcomes all fitness levels, with structured approaches tailored for beginners to build proper form and consistency.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I ask about membership? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">Absolutely. You can reach out directly via WhatsApp or use our inquiry form to ask any questions regarding gym membership options.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I ask about workout guidance? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes, our team is available to discuss workout routines, exercise technique, and training principles via WhatsApp or in person.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is the gym suitable for strength training? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes, our facility is fully equipped with dedicated strength training areas, free weights, and resistance equipment.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I contact the gym through WhatsApp? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">Yes, you can instantly message us on WhatsApp at 03126944857 for quick assistance and inquiries.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How can I inquire about training? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">You can use our contact form, click any of the WhatsApp buttons across the site, or call us directly at 03126944857.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How can I get more information before joining? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">Explore our training areas and workout tools on this website, or connect with us on WhatsApp for personalized answers.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (ZERO IMAGES) -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-col">
+                    <div class="section-badge">Get in Touch</div>
+                    <h2>START YOUR FITNESS JOURNEY.</h2>
+                    <p>Ready to take the next step in your training? Contact us directly or send an inquiry through the form.</p>
+                    <div class="contact-cards-stack">
+                        <div class="contact-card-box">
+                            <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-card-details">
+                                <span>Phone</span>
+                                <a href="tel:+923126944857">03126944857</a>
+                            </div>
+                        </div>
+                        <div class="contact-card-box">
+                            <div class="contact-card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="contact-card-details">
+                                <span>WhatsApp</span>
+                                <a href="https://wa.me/923126944857" target="_blank" rel="noopener">03126944857</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-action-btns">
+                        <a href="tel:+923126944857" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+                        <a href="https://wa.me/923126944857" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Send an Inquiry</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="tel" id="contactPhone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactInquiryType">Inquiry Type</label>
+                            <select id="contactInquiryType" class="form-control">
+                                <option value="Membership">Membership</option>
+                                <option value="Training">Training</option>
+                                <option value="Workout">Workout</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" class="form-control" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                        <div class="form-feedback" id="formFeedback"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo"><i class="fa-solid fa-dumbbell" style="color: var(--accent);"></i> FITNESS <span>GYM</span></a>
+                    <p>Fitness-focused training built around movement, strength, consistency and a disciplined approach to workouts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#training" class="footer-link">Training</a></li>
+                        <li><a href="#workouts" class="footer-link">Workouts</a></li>
+                        <li><a href="#tools" class="footer-link">Fitness Tools</a></li>
+                        <li><a href="#faq" class="footer-link">FAQ</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-info">
+                        <div>Phone: <a href="tel:+923126944857">03126944857</a></div>
+                        <div>WhatsApp: <a href="https://wa.me/923126944857" target="_blank" rel="noopener">03126944857</a></div>
+                        <div style="margin-top: 1rem;"><a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Start Training</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div id="copyrightText">© 2026 Fitness Gym. All Rights Reserved.</div>
+                <div>Designed for Performance & Strength</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Dynamic Current Year
+            const currentYear = new Date().getFullYear();
+            const copyrightEl = document.getElementById('copyrightText');
+            if (copyrightEl) {
+                copyrightEl.textContent = `© ${currentYear} Fitness Gym. All Rights Reserved.`;
+            }
+
+            // Navbar Scroll Effect & Active Section
+            const navbar = document.getElementById('navbar');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                const scrollPos = window.scrollY;
+                if (scrollPos > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                if (scrollPos > 400) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (scrollPos >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Mobile Navigation Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // Training Card Expandable Details
+            const expandBtns = document.querySelectorAll('.training-expand-btn');
+            expandBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const card = btn.closest('.training-card');
+                    card.classList.toggle('expanded');
+                    const icon = btn.querySelector('i');
+                    if (card.classList.contains('expanded')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                        btn.innerHTML = `Hide Details <i class="fa-solid fa-chevron-up"></i>`;
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                        btn.innerHTML = `View Details <i class="fa-solid fa-chevron-down"></i>`;
+                    }
+                });
+            });
+
+            // Workout Explorer Logic
+            const explorerGoal = document.getElementById('explorerGoal');
+            const explorerLevel = document.getElementById('explorerLevel');
+            const explorerFocus = document.getElementById('explorerFocus');
+            
+            const outGoal = document.getElementById('outGoal');
+            const outLevel = document.getElementById('outLevel');
+            const outFocus = document.getElementById('outFocus');
+            const outApproach = document.getElementById('outApproach');
+
+            const approaches = {
+                "Strength": "Focus on compound movements with controlled eccentric phases and progressive weight increments.",
+                "Muscle Building": "Utilize moderate rep ranges with high focus on muscular tension and consistent training volume.",
+                "General Fitness": "Combine multi-planar movements, aerobic stability, and foundational strength exercises.",
+                "Cardio": "Maintain steady aerobic heart rate zones with interval conditioning blocks for stamina.",
+                "Full Body": "Incorporate push, pull, squat, and hinge movement patterns for balanced development.",
+                "Mobility": "Prioritize active stretching, joint articulation, and dynamic movement flows."
+            };
+
+            function updateExplorer() {
+                const goalVal = explorerGoal.value;
+                const levelVal = explorerLevel.value;
+                const focusVal = explorerFocus.value;
+
+                outGoal.textContent = goalVal;
+                outLevel.textContent = levelVal;
+                outFocus.textContent = focusVal;
+                outApproach.textContent = approaches[goalVal] || "Start with controlled movements, proper technique and manageable volume.";
+            }
+
+            explorerGoal.addEventListener('change', updateExplorer);
+            explorerLevel.addEventListener('change', updateExplorer);
+            explorerFocus.addEventListener('change', updateExplorer);
+            updateExplorer();
+
+            // Exercise Library Data & Filtering
+            const exercisesData = [
+                { name: "Push-Ups", category: "Chest", desc: "Perform with controlled movement and maintain comfortable form." },
+                { name: "Bench Press", category: "Chest", desc: "Lower bar with control to mid-chest and press upward steadily." },
+                { name: "Squats", category: "Legs", desc: "Keep chest up, drive knees outward, and maintain stable foot stance." },
+                { name: "Lunges", category: "Legs", desc: "Step forward into a controlled split squat maintaining upright posture." },
+                { name: "Plank", category: "Core", desc: "Engage core and maintain a straight body line from head to heels." },
+                { name: "Bodyweight Rows", category: "Back", desc: "Pull chest toward bar with shoulder blades retracted." },
+                { name: "Lat Pulldown", category: "Back", desc: "Pull bar smoothly down to upper chest while keeping torso upright." },
+                { name: "Shoulder Press", category: "Shoulders", desc: "Press overhead with controlled movement and stable core." },
+                { name: "Lateral Raises", category: "Shoulders", desc: "Raise weights outward with slight elbow bend and controlled tempo." },
+                { name: "Bicep Curl", category: "Arms", desc: "Curl weights upward keeping elbows stable and posture steady." },
+                { name: "Triceps Extension", category: "Arms", desc: "Extend arms forward or overhead with controlled movement." },
+                { name: "Mountain Climbers", category: "Cardio", desc: "Alternate knee drives toward chest in a stable plank position." },
+                { name: "Jumping Jacks", category: "Cardio", desc: "Execute rhythmic jumping movements with coordinated arm swings." },
+                { name: "Hip Mobility Flow", category: "Mobility", desc: "Move gently through hip openers to improve joint range of motion." }
+            ];
+
+            const exercisesGrid = document.getElementById('exercisesGrid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            function renderExercises(filter) {
+                exercisesGrid.innerHTML = '';
+                const filtered = filter === 'all' ? exercisesData : exercisesData.filter(ex => ex.category === filter);
+                
+                filtered.forEach(ex => {
+                    const card = document.createElement('div');
+                    card.className = 'exercise-card';
+                    card.innerHTML = `
+                        <div>
+                            <span class="exercise-category-tag">${ex.category}</span>
+                            <h3>${ex.name}</h3>
+                            <p>${ex.desc}</p>
+                        </div>
+                        <div class="exercise-footer">
+                            <span>Fitness Gym Library</span>
+                            <i class="fa-solid fa-dumbbell" style="color: var(--accent);"></i>
+                        </div>
+                    `;
+                    exercisesGrid.appendChild(card);
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderExercises(btn.getAttribute('data-filter'));
+                });
+            });
+            renderExercises('all');
+
+            // Fitness Goal Selector Logic
+            const goalCards = document.querySelectorAll('.goal-card');
+            const goalOutputPanel = document.getElementById('goalOutputPanel');
+            const resGoalTitle = document.getElementById('resGoalTitle');
+            const resGoalStyle = document.getElementById('resGoalStyle');
+            const resGoalRec = document.getElementById('resGoalRec');
+
+            goalCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    goalCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    
+                    const goalName = card.getAttribute('data-goal');
+                    const goalStyle = card.getAttribute('data-style');
+                    const goalRec = card.getAttribute('data-rec');
+
+                    resGoalTitle.textContent = goalName;
+                    resGoalStyle.textContent = goalStyle;
+                    resGoalRec.textContent = goalRec;
+
+                    goalOutputPanel.classList.add('active');
+                });
+            });
+
+            // Workout Builder Logic
+            const generateWorkoutBtn = document.getElementById('generateWorkoutBtn');
+            const builderType = document.getElementById('builderType');
+            const builderIntensity = document.getElementById('builderIntensity');
+            const builderDuration = document.getElementById('builderDuration');
+            const builderResultPanel = document.getElementById('builderResultPanel');
+            
+            const phaseWarmup = document.getElementById('phaseWarmup');
+            const phaseMain = document.getElementById('phaseMain');
+            const phaseCond = document.getElementById('phaseCond');
+            const phaseCool = document.getElementById('phaseCool');
+
+            generateWorkoutBtn.addEventListener('click', () => {
+                const type = builderType.value;
+                const intensity = builderIntensity.value;
+                const duration = builderDuration.value;
+
+                phaseWarmup.textContent = `5-10 min dynamic mobility & joint activation suited for ${type.toLowerCase()} training.`;
+                phaseMain.textContent = `Structured ${intensity.toLowerCase()} intensity set focusing on ${type.toLowerCase()} movements (${duration} duration format).`;
+                phaseCond.textContent = `${intensity === 'Challenging' ? 'High-energy' : 'Moderate'} finisher to support overall endurance.`;
+                phaseCool.textContent = `5 min controlled breathing and static stretching for recovery.`;
+
+                builderResultPanel.classList.add('active');
+            });
+
+            // Fitness Check-In Logic
+            const checkinOptions = document.querySelectorAll('.checkin-option-btn');
+            const checkinState = { freq: 'Rarely', goal: 'Strength', env: 'Gym' };
+
+            document.querySelectorAll('.checkin-options').forEach(group => {
+                const groupName = group.getAttribute('data-group');
+                const btns = group.querySelectorAll('.checkin-option-btn');
+                btns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btns.forEach(b => b.classList.remove('selected'));
+                        btn.classList.add('selected');
+                        checkinState[groupName] = btn.getAttribute('data-value');
+                    });
+                });
+            });
+
+            const runCheckinBtn = document.getElementById('runCheckinBtn');
+            const checkinResult = document.getElementById('checkinResult');
+            const checkinOutputTitle = document.getElementById('checkinOutputTitle');
+            const checkinOutputDesc = document.getElementById('checkinOutputDesc');
+
+            runCheckinBtn.addEventListener('click', () => {
+                checkinOutputTitle.textContent = `Recommended Focus: ${checkinState.goal} (${checkinState.env} Training)`;
+                checkinOutputDesc.textContent = `Since you train ${checkinState.freq.toLowerCase()} with a primary goal of ${checkinState.goal.toLowerCase()} in a ${checkinState.env.toLowerCase()} environment, prioritize consistent weekly scheduling, proper movement form, and gradual progression.`;
+                checkinResult.classList.add('active');
+            });
+
+            // Membership Inquiry WhatsApp Link Generator
+            const inquiryChips = document.querySelectorAll('.inquiry-chip');
+            const whatsappInquiryBtn = document.getElementById('whatsappInquiryBtn');
+            let selectedInquiry = "General Membership Inquiry";
+
+            inquiryChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    inquiryChips.forEach(c => c.classList.remove('selected'));
+                    chip.classList.add('selected');
+                    selectedInquiry = chip.getAttribute('data-inquiry');
+                    const encodedMsg = encodeURIComponent(`Hello, I would like to inquire about ${selectedInquiry}.`);
+                    whatsappInquiryBtn.setAttribute('href', `https://wa.me/923126944857?text=${encodedMsg}`);
+                });
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const questionBtn = item.querySelector('.faq-question');
+                questionBtn.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Contact Form Validation & WhatsApp Follow-up Simulation
+            const contactForm = document.getElementById('contactForm');
+            const formFeedback = document.getElementById('formFeedback');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contactName').value.trim();
+                const phone = document.getElementById('contactPhone').value.trim();
+                const inquiryType = document.getElementById('contactInquiryType').value;
+                const message = document.getElementById('contactMessage').value.trim();
+
+                if (!name || !phone || !message) {
+                    formFeedback.className = 'form-feedback error';
+                    formFeedback.textContent = 'Please fill in all required fields.';
+                    return;
+                }
+
+                formFeedback.className = 'form-feedback success';
+                formFeedback.innerHTML = `Inquiry validated successfully! <br><a href="https://wa.me/923126944857?text=${encodeURIComponent(`Hello, my name is ${name} (${phone}). Inquiry Type: ${inquiryType}. Message: ${message}`)}" target="_blank" rel="noopener" style="color: #25d366; font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;"><i class="fa-brands fa-whatsapp"></i> Click here to follow up on WhatsApp</a>`;
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
